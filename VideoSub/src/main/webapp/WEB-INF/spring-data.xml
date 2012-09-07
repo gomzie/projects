@@ -22,7 +22,7 @@
 	<context:property-placeholder properties-ref="deployProperties" />
 
 	<!-- Activate Spring Data MongoDB repository support -->
-  	<mongo:repositories base-package="com.sage.videosub.repository" />
+  	<mongo:repositories base-package="org.spring.mongo.repository" />
   	
   	<!-- MongoDB host -->
 	<mongo:mongo host="${mongo.host.name}" port="${mongo.host.port}"/>
@@ -30,7 +30,4 @@
 	<!-- Template for performing MongoDB operations -->
   	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate" 
   			c:mongo-ref="mongo" c:databaseName="${mongo.db.name}"/>
-
-	<!-- Service for initializing MongoDB with sample data using MongoTemplate -->
-	<!-- <bean id="initMongoService" class="com.sage.videosub.service.InitMongoService" init-method="init"/>-->	
 </beans>

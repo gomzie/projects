@@ -12,13 +12,13 @@
 	<!-- For parsing classes with @Aspect annotation -->
 	<aop:aspectj-autoproxy/>
 
-	<bean id="customizableTraceInterceptor" class="com.sage.videosub.aop.TraceInterceptor"
+	<bean id="customizableTraceInterceptor" class="org.spring.mongo.aop.TraceInterceptor"
 		p:enterMessage="Entering $[targetClassShortName].$[methodName]($[arguments])"
 		p:exitMessage="Leaving $[targetClassShortName].$[methodName](): $[returnValue]"/>
 
 	<aop:config>
-	  <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * com.sage.videosub.service..*(..))"/>
-	  <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * com.sage.videosub.controller..*(..))"/>
+	  <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * org.spring.mongo.service..*(..))"/>
+	  <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * org.spring.mongo.controller..*(..))"/>
 	</aop:config>
 
 </beans>
